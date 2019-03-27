@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const User = require('../models/User');
+const Task = require('../models/Task');
 
 router.get('/', (req, res) => {
     res.send(process.env.NODE_ENV);
@@ -10,16 +10,17 @@ router.get('/', (req, res) => {
  * User Routers.
  */
 
-router.post('/users', (req, res) => {
-    new User(req.body)
+router.post('/task', (req, res) => {
+    console.log(req.body);
+    new Task(req.body)
         //{//instancia el usuario, pero no lo guarda
         // name: 'Ivan',
         // email: 'ivan@geekshubsacademy.com',
         // password: "mipass123"
         //})
         .save() //guarda el usuario en la base de datos
-        .then(user => { //nos devuelve el usuario que ha guardado en la respuesta
-            res.send(user);
+        .then(task => { //nos devuelve el usuario que ha guardado en la respuesta
+            res.send(task);
         }).catch(err => { //catch por si falla
             res.status(400).send(err);
         });

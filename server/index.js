@@ -15,4 +15,3 @@ app.use(router);
 app.listen(PORT,()=>{
     console.log(`Puerto levantado en http://localhost:${PORT}`)
 })
-
