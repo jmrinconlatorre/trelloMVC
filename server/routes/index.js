@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
-const Task = require('../models/Task');
+const Task = require('../models/Task');//importamos el modelo de TASK
+const User = require('../models/User');
 
 router.get('/', (req, res) => {
     res.send(process.env.NODE_ENV);
